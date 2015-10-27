@@ -19,6 +19,14 @@
             <li ng-repeat="product in store.products" class="list-group-item">
                 {{product.name}}
                 <span class="badge">{{product.price | currency}}</span>
+                <div id="gallery" ng-show="product.images.length > 0">
+                    <img ng-src="{{product.images[0]}}"/>
+                    <div class="row">
+                        <div class="col-xs-1" ng-repeat="image in product.images">
+                            <img ng-src="{{image}}" style="width: 25px; height=25px" />
+                        </div>
+                    </div>
+                </div>
             </li>
         </ul>
         </div>
