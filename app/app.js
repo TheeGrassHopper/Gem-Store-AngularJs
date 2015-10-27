@@ -110,4 +110,13 @@
             this.review = {};
         };
     });
+
+
+    app.directive('productTitle', function() {
+        return {
+            restrict: 'E',      // defining a new element
+            templateUrl: 'product-title.html'
+        };
+    });
+
 })();
