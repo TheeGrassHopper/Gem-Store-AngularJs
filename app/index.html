@@ -14,9 +14,12 @@
             </div>
         </div>    
     </div>
-    <div class="well-sm">
-        <h1>Hello AngularJS!</h1>
-        <p>I am {{2014 - 1974}} years old.</p>    
+    <div class="well-sm" ng-controller="StoreController as store">
+        <h1>{{store.product.name}}</h1>
+        <h2>{{store.product.price}}</h2>
+        <p>
+            {{store.product.description}}
+        </p>
     </div>    
 </body>
 </html>
