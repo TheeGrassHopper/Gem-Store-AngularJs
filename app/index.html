@@ -26,8 +26,7 @@
     <div ng-controller="StoreController as store" class="well">
         <ul class="list-group">
             <li ng-repeat="product in store.products" class="list-group-item">
-                {{product.name}}
-                <img ng-src="{{product.images[0]}}" />
+                <span ng-include="'product-title.html'"></span>
                 <section ng-controller="PanelController as panel">
                     <ul class="nav nav-tabs">
                     	<li ng-class="{active: panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Description</a></li>
@@ -60,7 +59,7 @@
                                 {{review.body}}<br/>
                                 <cite>by: {{review.author}} <span ng-show="review.createdOn">on {{review.createdOn | date}}</span></cite>
                             </blockquote>
-                            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid &&reviewCtrl.addReview(product)" novalidate>
+                            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid &&reviewCtrl.addReview(product)" >
                                 <blockquote>
                                     <b>Stars: {{reviewCtrl.review.stars}}</b><br/>
                                     {{reviewCtrl.review.body}}<br/>
@@ -78,7 +77,6 @@
                                 </div>
                                 <div class="form-group">
                                     <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Enter the gem review" required></textarea>
-                                </div>
                                 <div class="form-group">
                                     <label>by:</label>
                                     <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="joe@home.com" required/>
