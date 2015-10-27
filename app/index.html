@@ -51,7 +51,32 @@
                                 {{review.body}}<br/>
                                 <cite>by: {{review.author}}</cite>
                             </blockquote>
-                        </div>
+                            <form name="reviewForm">
+                                <blockquote>
+                                    <b>Stars: {{review.stars}}</b><br/>
+                                    {{review.body}}<br/>
+                                    <cite>by: {{review.author}}</cite>
+                                </blockquote>
+                                <div class="form-group"> 
+                                    <select ng-model="review.stars" class="form-control">
+                                        <option value disabled selected>Rate the product...</option>
+                                        <option value="5">5 Stars</option>
+                                        <option value="4">4 Stars</option>
+                                        <option value="3">3 Stars</option>
+                                        <option value="2">2 Stars</option>
+                                        <option value="1">1 Star</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <textarea ng-model="review.body" class="form-control" placeholder="Enter the gem review"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>by:</label>
+                                    <input ng-model="review.author" type="email" class="form-control" placeholder="joe@home.com"/>
+                                </div>
+                                <input type="submit" value="Submit" class="btn btn-default"/>
+                            </form>                            
+                        </div>                        
                     </div>
                 </section>
             </li>
