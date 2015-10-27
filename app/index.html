@@ -14,12 +14,19 @@
             </div>
         </div>    
     </div>
-    <div class="well-sm" ng-controller="StoreController as store">
-        <h1>{{store.product.name}}</h1>
-        <h2>{{store.product.price}}</h2>
-        <p>
-            {{store.product.description}}
-        </p>
+    <div ng-controller="StoreController as store" class="well">
+        <div ng-repeat="product in store.products">
+            <div ng-show="product.canPurchase" class="well">
+                <h1>{{product.name}}</h1>
+                <h2>${{product.price}}</h2>
+                <p>
+                    {{product.description}}
+                </p>
+                <p>
+                    <button ng-hide='product.isSoldOut'>Add to Cart</button>
+                </p>
+            </div>
+        </div>
     </div>    
 </body>
 </html>
