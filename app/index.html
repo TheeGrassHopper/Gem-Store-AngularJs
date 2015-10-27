@@ -46,7 +46,11 @@
                             Reviews
                         </div>
                         <div class="panel-body">
-                            No Reviews Yet
+                            <blockquote ng-repeat="review in product.reviews">
+                                <b>Stars: {{review.stars}}</b><br/>
+                                {{review.body}}<br/>
+                                <cite>by: {{review.author}}</cite>
+                            </blockquote>
                         </div>
                     </div>
                 </section>
