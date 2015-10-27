@@ -15,17 +15,12 @@
         </div>    
     </div>
     <div ng-controller="StoreController as store" class="well">
-        <div ng-repeat="product in store.products">
-            <div ng-show="product.canPurchase" class="well">
-                <h1>{{product.name}}</h1>
-                <h2>${{product.price}}</h2>
-                <p>
-                    {{product.description}}
-                </p>
-                <p>
-                    <button ng-hide='product.isSoldOut'>Add to Cart</button>
-                </p>
-            </div>
+        <ul class="list-group">
+            <li ng-repeat="product in store.products" class="list-group-item">
+                {{product.name}}
+                <span class="badge">{{product.price | currency}}</span>
+            </li>
+        </ul>
         </div>
     </div>    
 </body>

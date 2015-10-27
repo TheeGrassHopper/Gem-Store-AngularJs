@@ -9,22 +9,17 @@
         {
             name: 'gem1',
             price: 1.1,
-            description: 'gem1 description',
-            canPurchase: false
+            description: 'gem1 description'
         },
         {
             name: 'gem2',
             price: 2.22,
-            description: 'gem2 description',
-            canPurchase: true,
-            isSoldOut: false
+            description: 'gem2 description'
         },
         {
             name: 'gem3',
             price: 3.333,
-            description: 'gem3 description',
-            canPurchase: true,
-            isSoldOut: true
+            description: 'gem3 description'
         }
     ];
 
