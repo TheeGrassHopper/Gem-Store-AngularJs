@@ -18,36 +18,38 @@
         <ul class="list-group">
             <li ng-repeat="product in store.products" class="list-group-item">
                 {{product.name}}
-                <img ng-src="{{product.images[0]}}"/>
-                <ul class="nav nav-tabs" ng-init="tab = 1">
-                	<li ng-class="{active: tab === 1}"><a href ng-click="tab = 1">Description</a></li>
-                	<li ng-class="{active: tab === 2}"><a href ng-click="tab = 2">Specifications</a></li>
-                	<li ng-class="{active: tab === 3}"><a href ng-click="tab = 3">Reviews</a></li> 
-                </ul>
-                <div class="panel panel-default" ng-show="tab === 1">
-                    <div class="panel-heading">
-                        Description
+                <img ng-src="{{product.images[0]}}" />
+                <section ng-controller="PanelController as panel">
+                    <ul class="nav nav-tabs">
+                    	<li ng-class="{active: panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Description</a></li>
+                    	<li ng-class="{active: panel.isSelected(2)}"><a href ng-click="panel.selectTab(2)">Specifications</a></li>
+                    	<li ng-class="{active: panel.isSelected(3)}"><a href ng-click="panel.selectTab(3)">Reviews</a></li> 
+                    </ul>
+                    <div class="panel panel-default" ng-show="panel.isSelected(1)">
+                        <div class="panel-heading">
+                            Description
+                        </div>
+                        <div class="panel-body">
+                            {{product.description}}
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        No Description available
+                    <div class="panel panel-default" ng-show="panel.isSelected(2)">
+                        <div class="panel-heading">
+                            Specifications
+                        </div>
+                        <div class="panel-body">
+                            No Specs Defined
+                        </div>
                     </div>
-                </div>
-                <div class="panel panel-default" ng-show="tab === 2">
-                    <div class="panel-heading">
-                        Specifications
+                    <div class="panel panel-default" ng-show="panel.isSelected(3)">
+                        <div class="panel-heading">
+                            Reviews
+                        </div>
+                        <div class="panel-body">
+                            No Reviews Yet
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        No Specs Defined
-                    </div>
-                </div>
-                <div class="panel panel-default" ng-show="tab === 3">
-                    <div class="panel-heading">
-                        Reviews
-                    </div>
-                    <div class="panel-body">
-                        No Reviews Yet
-                    </div>
-                </div>
+                </section>
             </li>
         </ul>
         </div>
